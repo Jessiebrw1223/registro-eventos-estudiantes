@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/96a574d7-6f2c-4639-ac2f-bfce263f94ad/resourceGroups/appsvc_linux_eastus2/providers/Microsoft.Web/sites/Formulario",
+    "appService.deploySubpath": "."
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Registro de Preferencias de Eventos para Estudiantes</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f7;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  form {
+    max-width: 960px;
+    margin: auto;
+  }
+
+  section {
+    background: #fff;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+  }
+
+  section:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  section h2 {
+    font-size: 1.4rem;
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #2c3e50;
+  }
+
+  input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 4px #3498db99;
+  }
+
+  .contact-block {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .contact-block > div {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .tema-interes label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  .tema-interes select {
+    width: 140px;
+  }
+
+  .tema-descripcion {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 16px;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.95rem;
+  }
+
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+
+  thead th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .checkbox-cell input[type="checkbox"] {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+
+  button[type="submit"] {
+    display: block;
+    margin: 40px auto 0;
+    background-color: #3498db;
+    color: white;
+    padding: 14px 32px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  button[type="submit"]:hover {
+    background-color: #2a80b9;
+  }
+
+  @media (max-width: 700px) {
+    .contact-block {
+      flex-direction: column;
+    }
+    section {
+      padding: 20px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<h1>Formulario de Preferencias</h1>
+<p class="intro">Por favor, completa la siguiente información para ayudarnos a organizar eventos de tu interés.</p>
+
+<form method="post" action="/">
+
+  <!-- 1. Tus Datos Personales -->
+  <h2>1. Tus Datos Personales</h2>
+
+  <label for="nombres">Nombre:</label>
+  <input type="text" id="nombre_est" name="nombres" />
+
+  <label for="apellidos">Apellidos</label>
+  <input type="text" name="apellidos" id="apellidos" required>
+
+  <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+  <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
+
+    <!-- Ciclo: elección números romanos I a X -->
+    <label for="ciclo">Ciclo (I - X):</label>
+    <select id="ciclo" name="ciclo" required>
+      <option value="" disabled selected>Seleccione ciclo</option>
+      <option value="I">I</option>
+      <option value="II">II</option>
+      <option value="III">III</option>
+      <option value="IV">IV</option>
+      <option value="V">V</option>
+      <option value="VI">VI</option>
+      <option value="VII">VII</option>
+      <option value="VIII">VIII</option>
+      <option value="IX">IX</option>
+      <option value="X">X</option>
+    </select>
+
+ <!-- Sede: 3 opciones -->
+    <label for="sede">Sede:</label>
+    <select id="sede" name="sede" required>
+      <option value="" disabled selected>Seleccione sede</option>
+      <option value="Lima">Lima</option>
+      <option value="Filial Norte">Filial Norte</option>
+      <option value="Filial Sur">Filial Sur</option>
+    </select>
+
+  <!-- 2. Información de Contacto -->
+  <h2>2. Información de Contacto</h2>
+
+  <div class="contact-block">
+    <div>
+      <label>Teléfono(s):</label>
+      <input type="text" name="telefono1" placeholder="Teléfono 1">
+      <input type="text" name="telefono2" placeholder="Teléfono 2">
+      <input type="text" name="telefono3" placeholder="Teléfono 3">
+    </div>
+    <div>
+      <label>Correo(s) Electrónico(s):</label>
+      <input type="email" name="correo1" placeholder="Correo 1">
+      <input type="email" name="correo2" placeholder="Correo 2">
+      <input type="email" name="correo3" placeholder="Correo 3">
+    </div>
+  </div>
+
+  <!-- 3. Preferencias de Temas para Eventos -->
+<h2>3. Preferencias de Temas para Eventos</h2>
+<p>Indica tu nivel de interés para los siguientes temas:</p>
+
+<div class="tema-interes">
+  <label for="interes_ia">
+    Inteligencia Artificial Aplicada
+    <select name="interes_ia" id="interes_ia" title="Casos de uso de IA en la industria.">
+      <option value="ninguna" selected>Ninguna</option>
+      <option value="baja">Baja</option>
+      <option value="media">Media</option>
+      <option value="alta">Alta</option>
+    </select>
+  </label>
+  <p class="tema-descripcion">Casos de uso de IA en la industria.</p>
+
+  <label for="interes_web">
+    Desarrollo Web Moderno
+    <select name="interes_web" id="interes_web" title="Frameworks y tendencias actuales.">
+      <option value="ninguna" selected>Ninguna</option>
+      <option value="baja">Baja</option>
+      <option value="media">Media</option>
+      <option value="alta">Alta</option>
+    </select>
+  </label>
+  <p class="tema-descripcion">Frameworks y tendencias actuales.</p>
+
+  <label for="interes_ciber">
+    Ciberseguridad en la Nube
+    <select name="interes_ciber" id="interes_ciber" title="Protección de datos en entornos cloud.">
+      <option value="ninguna" selected>Ninguna</option>
+      <option value="baja">Baja</option>
+      <option value="media">Media</option>
+      <option value="alta">Alta</option>
+    </select>
+  </label>
+  <p class="tema-descripcion">Protección de datos en entornos cloud.</p>
+
+  <label for="interes_marketing">
+    Marketing Digital Estratégico
+    <select name="interes_marketing" id="interes_marketing" title="Cómo crear campañas efectivas.">
+      <option value="ninguna" selected>Ninguna</option>
+      <option value="baja">Baja</option>
+      <option value="media">Media</option>
+      <option value="alta">Alta</option>
+    </select>
+  </label>
+  <p class="tema-descripcion">Cómo crear campañas efectivas.</p>
+</div>
+
+  <!-- 4. Recomendación de Expositores -->
+  <h2>4. Recomendación de Expositores</h2>
+  <label for="recomendacion_expositor">Si conoces a alguien que podría ser un buen expositor, ¡recomiéndalo!</label>
+  <textarea name="recomendacion_expositor" id="recomendacion_expositor" placeholder="Nombre, tema, contacto..."></textarea>
+
+  <!-- 5. Tu Disponibilidad Horaria Semanal -->
+  <h2>5. Tu Disponibilidad Horaria Semanal</h2>
+  <p>Marca los bloques horarios en los que generalmente estarías disponible para asistir a eventos.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Hora / Día</th>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miércoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+        <th>Sábado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>08:00 - 10:00<br>Mañana - Bloque 1</td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_lunes_08_10"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_martes_08_10"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_miercoles_08_10"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_jueves_08_10"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_viernes_08_10"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_sabado_08_10"></td>
+      </tr>
+      <tr>
+        <td>10:00 - 12:00<br>Mañana - Bloque 2</td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_lunes_10_12"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_martes_10_12"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_miercoles_10_12"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_jueves_10_12"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_viernes_10_12"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_sabado_10_12"></td>
+      </tr>
+      <tr>
+        <td>14:00 - 16:00<br>Tarde - Bloque 1</td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_lunes_14_16"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_martes_14_16"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_miercoles_14_16"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_jueves_14_16"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_viernes_14_16"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_sabado_14_16"></td>
+      </tr>
+      <tr>
+        <td>16:00 - 18:00<br>Tarde - Bloque 2</td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_lunes_16_18"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_martes_16_18"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_miercoles_16_18"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_jueves_16_18"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_viernes_16_18"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_sabado_16_18"></td>
+      </tr>
+      <tr>
+        <td>18:00 - 20:00<br>Noche - Bloque 1</td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_lunes_18_20"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_martes_18_20"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_miercoles_18_20"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_jueves_18_20"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_viernes_18_20"></td>
+        <td class="checkbox-cell"><input type="checkbox" name="disp_sabado_18_20"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="submit">Enviar Registro</button>
+</form>
+
+</body>
+</html>
